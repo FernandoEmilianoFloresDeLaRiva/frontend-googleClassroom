@@ -33,6 +33,7 @@ function LoginPwd() {
         type: loginActions.setPassword,
         payload: password,
       });
+      setLocation("/home/0");
     } else {
       setInvalidPassword(true);
     }

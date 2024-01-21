@@ -31,7 +31,7 @@ function RegisterPasswordSignup() {
       type: registerActions.setPassword,
       payload: password,
     });
-    
+    setLocation("/home/0");
   };
   return (
     <FormLoginLayout>

@@ -12,19 +12,21 @@
 }
 
 .containerLogo {
-  width: 25%;
+  min-width: 25%;
+  max-width: 80%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .containerLogo a {
+  padding: 0 5%;
+  font-size: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 5%;
-  background-color: transparent;
   border: none;
 }
 
@@ -35,7 +37,8 @@ img {
   text-decoration: underline;
 }
 .containerLogo img {
-  width: 15%;
+  display: block;
+  height: 2em;
 }
 
 .containerLogo span {
@@ -56,6 +59,7 @@ img {
 }
 
 .profile button {
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,6 +82,37 @@ img {
   font-size: 2.5em;
 }
 
+.groupButtons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  right: 65%;
+  top: 70%;
+  background-color: #ffffff;
+  width: 50%;
+  height: 90%;
+  padding: 5% 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
+.groupButtons button {
+  font-size: 1rem;
+  font-family: google sans;
+  text-align: left;
+  border-radius: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.groupButtons button:hover {
+  background-color: #cccccc1e;
+  cursor: pointer;
+}
+
 .placeholder {
   opacity: 0;
   padding: 2%;
@@ -87,7 +122,7 @@ img {
   font-size: 0.7em;
   position: absolute;
   top: 95%;
-  left: 12%;
+  left: 9%;
 }
 
 .buttonPlus:hover + div {
