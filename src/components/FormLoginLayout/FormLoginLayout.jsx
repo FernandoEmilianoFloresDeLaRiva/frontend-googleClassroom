@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./LoginLayout.module.css";
-import googleLogo from "../../../../assets/imgs/google-logo.svg";
+import styles from "./FormLoginLayout.module.css";
+import googleLogo from "../../assets/imgs/google-logo.svg";
 
-function LoginLayout({ children }) {
+function FormLoginLayout({ children }) {
   return (
     <form className={styles.form}>
       <div className={styles.formInfo}>
@@ -13,4 +13,4 @@ function LoginLayout({ children }) {
   );
 }
 
-export default LoginLayout;
+export default FormLoginLayout;

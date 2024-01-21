@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./LoginPwd.module.css";
-import LoginLayout from "../LoginLayout/LoginLayout";
+import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from ".././../../../components/Input/Input";
 import { LoginContext } from "../../context/login.context";
 import { useForm } from "react-hook-form";
@@ -8,8 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordSchema } from "../../validators/PasswordValidator";
 import { loginActions } from "../../context/actions/login.actions";
 import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
+import { useLocation } from "wouter";
 
 function LoginPwd() {
+  const [location, setLocation] = useLocation();
   const { dispatch } = useContext(LoginContext);
   const {
     register,
@@ -29,7 +31,7 @@ function LoginPwd() {
   };
   const name = "Fernando Emiliano Flores De La Riva";
   return (
-    <LoginLayout>
+    <FormLoginLayout>
       <p className={styles.p}>{name}</p>
       <div className={styles.containerInputButtons}>
         <div className={styles.containerEmail}>
@@ -47,14 +49,16 @@ function LoginPwd() {
           value={watch()}
         />
         <div className={styles.containerButtons}>
-          <button>Crear cuenta</button>
+          <button onClick={() => setLocation("/register/signup")}>
+            Crear cuenta
+          </button>
           <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
         </div>
         {errors.password?.message && (
           <ErrorMessage message={errors.password?.message} />
         )}
       </div>
-    </LoginLayout>
+    </FormLoginLayout>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./LoginIdentifier.module.css";
-import LoginLayout from "../LoginLayout/LoginLayout";
+import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from "../../../../components/Input/Input";
 import { LoginContext } from "../../context/login.context";
 import { loginActions } from "../../context/actions/login.actions";
@@ -30,7 +30,7 @@ function LoginIdentifier() {
     setLocation("/pwd");
   };
   return (
-    <LoginLayout>
+    <FormLoginLayout>
       <span>Inicia Sesión</span>
       <p>utiliza tu cuenta de google</p>
       <div className={styles.containerInputButtons}>
@@ -41,12 +41,17 @@ function LoginIdentifier() {
           type="email"
           value={watch()}
         />
+        {errors.email?.message && (
+          <ErrorMessage message={errors.email?.message} />
+        )}
         <div className={styles.containerButtons}>
-          <button>Crear cuenta</button>
+          <button onClick={() => setLocation("/register/signup")}>
+            Crear cuenta
+          </button>
           <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
         </div>
       </div>
-    </LoginLayout>
+    </FormLoginLayout>
   );
 }
 
