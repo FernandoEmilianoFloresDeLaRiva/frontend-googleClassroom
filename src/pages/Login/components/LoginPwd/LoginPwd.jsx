@@ -15,6 +15,7 @@ function LoginPwd() {
   const [location, setLocation] = useLocation();
   const { userLogin, dispatch } = useContext(LoginContext);
   const [password, setPassword] = useState("");
+  const [invalidPassword, setInvalidPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -26,11 +27,15 @@ function LoginPwd() {
   const { user } = useGetUser(password, dispatch, userLogin);
   const handleOnSubmit = (data) => {
     setPassword(data.password);
-    dispatch({
-      type: loginActions.setPassword,
-      payload: password,
-    });
-    if (user) alert("entrada exitosa");
+    if (user) {
+      setInvalidPassword(false);
+      dispatch({
+        type: loginActions.setPassword,
+        payload: password,
+      });
+    } else {
+      setInvalidPassword(true);
+    }
   };
   return (
     <FormLoginLayout>
@@ -53,9 +58,15 @@ function LoginPwd() {
           value={watch()}
         />
         <div className={styles.containerError}>
-          {errors.password?.message && (
-            <ErrorMessage message={errors.password?.message} />
-          )}
+          {errors.password?.message ||
+            (invalidPassword && (
+              <ErrorMessage
+                message={
+                  errors.password?.message ||
+                  "Contraseña incorrecta. Vuelve a intentarlo."
+                }
+              />
+            ))}
         </div>
         <div className={styles.containerButtons}>
           <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>

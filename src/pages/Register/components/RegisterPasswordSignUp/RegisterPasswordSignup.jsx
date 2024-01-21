@@ -14,6 +14,7 @@ import { useGetUser } from "../../hooks/useGetUser.hook";
 function RegisterPasswordSignup() {
   const [location, setLocation] = useLocation();
   const { userRegister, dispatch } = useContext(RegisterContext);
+
   const [password, setPassword] = useState("");
   const {
     register,
@@ -25,13 +26,12 @@ function RegisterPasswordSignup() {
   });
   const { user } = useGetUser(password, dispatch, userRegister);
   const handleOnSubmit = (data) => {
-    setPassword(data.password)
+    setPassword(data.password);
     dispatch({
       type: registerActions.setPassword,
       payload: password,
     });
-    if (user) alert("entrada exitosa");
-    // setLocation("/register/signup/createpassword");
+    
   };
   return (
     <FormLoginLayout>

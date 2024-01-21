@@ -1,0 +1,144 @@
+* {
+  text-transform: capitalize;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  width: 100%;
+}
+
+.containerLogo {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.containerLogo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  background-color: transparent;
+  border: none;
+}
+
+.containerLogo a:hover span,
+img {
+  cursor: pointer;
+  color: #1e8e3e;
+  text-decoration: underline;
+}
+.containerLogo img {
+  width: 15%;
+}
+
+.containerLogo span {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  color: #5f6368;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+.profile button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  width: 20%;
+  height: 80%;
+  border-radius: 50%;
+  animation: 0.3s ease-in-out;
+}
+
+.profile button:hover {
+  background-color: #cccccc1e;
+  cursor: pointer;
+}
+
+.profile button span {
+  font-family: google sans;
+  font-weight: lighter;
+  font-size: 2.5em;
+}
+
+.placeholder {
+  opacity: 0;
+  padding: 2%;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #555a60;
+  font-size: 0.7em;
+  position: absolute;
+  top: 95%;
+  left: 12%;
+}
+
+.buttonPlus:hover + div {
+  opacity: 1;
+}
+
+.icon {
+  font-size: 1.3em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 55%;
+  border-radius: 50%;
+  background-color: #2369bf;
+}
+
+.icon:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 1px rgb(155, 147, 147);
+}
+
+.placeholderProfile {
+  opacity: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1%;
+  padding: 2%;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #6c7176;
+  font-size: 0.7em;
+  position: absolute;
+  top: 95%;
+  right: 20%;
+}
+
+.icon:hover + div {
+  opacity: 1;
+}
+
+.placeholderProfile span:first-child {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.placeholderProfile span:last-child {
+  font-size: 1em;
+  color: #e2e7ec;
+  font-weight: bolder;
+}

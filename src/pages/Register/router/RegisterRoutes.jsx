@@ -1,6 +1,6 @@
 import React from "react";
 import RegisterSignup from "../components/RegisterSignup/RegisterSignup";
-import RegisterEmailSignup from "../components/RegisterEmailSignUp/RegisterEmailSignUp"
+import RegisterEmailSignup from "../components/RegisterEmailSignUp/RegisterEmailSignUp";
 import { Route } from "wouter";
 import { RegisterProvider } from "../context/register.context";
 import RegisterPasswordSignup from "../components/RegisterPasswordSignUp/RegisterPasswordSignup";
@@ -13,7 +13,7 @@ function RegisterRoutes() {
         <RegisterSignup />
       </Route>
       <Route path="/register/signup/email">
-        <RegisterEmailSignup/>
+        <RegisterEmailSignup />
       </Route>
       <Route path="/register/signup/createpassword">
         <RegisterPasswordSignup />
