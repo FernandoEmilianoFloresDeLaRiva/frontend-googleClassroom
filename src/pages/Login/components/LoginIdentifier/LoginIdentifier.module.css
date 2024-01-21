@@ -1,0 +1,74 @@
+*{
+    text-transform: capitalize;
+}
+
+.formInfo p {
+  font-size: 16px;
+  margin-top: 0;
+  font-family: roboto;
+  letter-spacing: 0.1px;
+  line-height: 1.5;
+}
+
+.containerInputButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 100%;
+}
+
+.containerButtons {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerButtons button {
+  width: 30%;
+  height: 70%;
+  text-align: center;
+  font-family: google sans;
+  font-size: 0.875rem;
+  letter-spacing: 0.0107142857em;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.containerButtons button:first-child {
+  width: 30%;
+  color: #1a73e8;
+  border-color: transparent;
+}
+
+.containerButtons button:first-child:hover {
+  cursor: pointer;
+  background-color: #1a73e80e;
+  border-radius: 5px;
+}
+
+.containerButtons button:last-child{
+  text-decoration: none;
+  width: 30%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: google sans;
+  font-size: 0.875rem;
+  letter-spacing: 0.0107142857em;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgb(26 115 232);
+  border: 2px solid rgb(26 115 232);
+  border-radius: 5px;
+}
+
+.containerButtons button:last-child:hover {
+  cursor: pointer;
+  background-color: rgb(3, 93, 210);
+  box-shadow: 0 0 2px #000;
+}

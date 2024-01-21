@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "google sans";
+  src: url("./assets/fonts/googlesans.woff2");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("./assets/fonts/roboto.woff2");
+}
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  max-height: 100vh;
+}

@@ -1,0 +1,16 @@
+.container {
+  margin-top: -35%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2%;
+  align-items: center;
+  font-size: 12px;
+  font-weight: roboto;
+  line-height: normal;
+  color: rgb(217, 48, 37);
+}
+
+.container img {
+  width: 3%;
+}

@@ -1,0 +1,50 @@
+* {
+  font-family: google sans;
+  text-transform: capitalize;
+  --color-label: rgb(32, 33, 36);
+  --color-selected: #3f51b5;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  font-family: roboto, "Noto Sans", Arial, Helvetica, sans-serif;
+  opacity: 0;
+  position: absolute;
+  top: -0.9em;
+  left: 0.8em;
+  background-color: #fff;
+  padding: 0 4px;
+  font-size: 0.8em;
+  color: var(--color-label);
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(2em) translateX(1em) scale(0.75);
+}
+
+.label.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.input {
+  color: var(--color-label);
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  height: 3em;
+}
+
+.input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--color-selected);
+}
