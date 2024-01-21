@@ -21,6 +21,12 @@
   height: 100%;
 }
 
+.containerError {
+  width: 100%;
+  margin-top: -2%;
+  margin-left: -10%;
+}
+
 .containerEmail {
   display: flex;
   justify-content: space-evenly;

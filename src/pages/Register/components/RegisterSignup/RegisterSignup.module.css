@@ -8,5 +8,42 @@
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  height: 100%;
+}
+
+.containerError {
+  width: 100%;
+  margin-top: 5%;  
+  margin-left: -10%;
+}
+
+.containerButtons {
+  padding-right: 15%;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.containerButtons button {
+  text-decoration: none;
+  width: 25%;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: google sans;
+  font-size: 0.875rem;
+  letter-spacing: 0.0107142857em;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgb(26 115 232);
+  border: 2px solid rgb(26 115 232);
+  border-radius: 5px;
+}
+
+.containerButtons button:hover {
+  cursor: pointer;
+  background-color: rgb(3, 93, 210);
+  box-shadow: 0 0 2px #000;
 }

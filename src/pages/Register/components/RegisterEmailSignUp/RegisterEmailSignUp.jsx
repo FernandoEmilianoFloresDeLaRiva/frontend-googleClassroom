@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import styles from "./LoginIdentifier.module.css";
+import styles from "./RegisterEmailSignUp.module.css";
 import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from "../../../../components/Input/Input";
-import { LoginContext } from "../../context/login.context";
-import { loginActions } from "../../context/actions/login.actions";
+import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
+import { useLocation } from "wouter";
+import { RegisterContext } from "../../context/register.context";
+import { emailSchema } from "../../../Login/validators/EmailValidator";
+import { registerActions } from "../../context/actions/register.actions";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocation } from "wouter";
-import { emailSchema } from "../../validators/EmailValidator";
-import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
 
-function LoginIdentifier() {
+function RegisterEmailSignUp() {
   const [location, setLocation] = useLocation();
-  const { dispatch } = useContext(LoginContext);
+  const { dispatch } = useContext(RegisterContext);
   const {
     register,
     handleSubmit,
@@ -24,18 +24,20 @@ function LoginIdentifier() {
   const handleOnSubmit = (data) => {
     const { email } = data;
     dispatch({
-      type: loginActions.setEmail,
+      type: registerActions.setEmail,
       payload: email,
     });
-    setLocation("/pwd");
+    setLocation("/register/signup/createpassword");
   };
   return (
     <FormLoginLayout>
-      <span>Inicia Sesión</span>
-      <p>utiliza tu cuenta de google</p>
+      <span className={styles.span}>Usar tu correo electrónico</span>
+      <p className={styles.emailStep}>
+        Introduce la dirección de correo que quieres usar en tu cuenta de Google
+      </p>
       <div className={styles.containerInputButtons}>
         <Input
-          placeholder="Correo electrónico"
+          placeholder="Dirección de correo electrónico"
           id="email"
           config={register("email")}
           type="email"
@@ -47,9 +49,6 @@ function LoginIdentifier() {
           )}
         </div>
         <div className={styles.containerButtons}>
-          <button onClick={() => setLocation("/register/signup/name")}>
-            Crear cuenta
-          </button>
           <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
         </div>
       </div>
@@ -57,4 +56,4 @@ function LoginIdentifier() {
   );
 }
 
-export default LoginIdentifier;
+export default RegisterEmailSignUp;

@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import styles from "./LoginPwd.module.css";
+import styles from "./RegisterPasswordSignup.module.css";
 import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
-import Input from ".././../../../components/Input/Input";
-import { LoginContext } from "../../context/login.context";
+import Input from "../../../../components/Input/Input";
+import { useLocation } from "wouter";
+import { RegisterContext } from "../../context/register.context";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordSchema } from "../../validators/PasswordValidator";
-import { loginActions } from "../../context/actions/login.actions";
+import { registerActions } from "../../context/actions/register.actions";
 import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
-import { useLocation } from "wouter";
 
-function LoginPwd() {
+function RegisterPasswordSignup() {
   const [location, setLocation] = useLocation();
-  const { dispatch } = useContext(LoginContext);
+  const { dispatch } = useContext(RegisterContext);
   const {
     register,
     handleSubmit,
@@ -24,25 +24,23 @@ function LoginPwd() {
   const handleOnSubmit = (data) => {
     const { password } = data;
     dispatch({
-      type: loginActions.setPassword,
+      type: registerActions.setPassword,
       payload: password,
     });
-    alert("entrada exitosa");
+    // setLocation("/register/signup/createpassword");
   };
-  const name = "Fernando Emiliano Flores De La Riva";
   return (
     <FormLoginLayout>
-      <p className={styles.p}>{name}</p>
+      <div className={styles.info}>
+        <span className={styles.span}>Usar tu correo electrónico</span>
+        <p className={styles.emailStep}>
+          Crea una contraseña segura con una combinación de letras, números y
+          símbolos
+        </p>
+      </div>
       <div className={styles.containerInputButtons}>
-        <div className={styles.containerEmail}>
-          <span className={styles.accountLetter}>F</span>
-          <span>emilianoflores07081@gmail.com</span>
-        </div>
-        <span className={styles.warning}>
-          Debes verificar que eres tú para poder continuar
-        </span>
         <Input
-          placeholder="Introduce tu contraseña"
+          placeholder="Contraseña"
           id="password"
           config={register("password")}
           type="password"
@@ -53,10 +51,19 @@ function LoginPwd() {
             <ErrorMessage message={errors.password?.message} />
           )}
         </div>
+        <Input
+          placeholder="Confirmación"
+          id="confirmPassword"
+          config={register("confirmPassword")}
+          type="password"
+          value={watch()}
+        />
+        <div className={styles.containerError}>
+          {errors.confirmPassword?.message && (
+            <ErrorMessage message={errors.confirmPassword?.message} />
+          )}
+        </div>
         <div className={styles.containerButtons}>
-          <button onClick={() => setLocation("/register/signup/name")}>
-            Crear cuenta
-          </button>
           <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
         </div>
       </div>
@@ -64,4 +71,4 @@ function LoginPwd() {
   );
 }
 
-export default LoginPwd;
+export default RegisterPasswordSignup;

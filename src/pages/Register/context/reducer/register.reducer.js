@@ -12,6 +12,7 @@ export const registerReducer = (state, action) => {
         ...state,
         name: payload,
       };
+      console.log(newObject)
       return newObject;
     }
 
@@ -21,6 +22,7 @@ export const registerReducer = (state, action) => {
         ...state,
         email: payload,
       };
+      console.log(newObject)
       return newObject;
     }
     case registerActions.setPassword: {
