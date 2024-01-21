@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./RegisterPasswordSignup.module.css";
 import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from "../../../../components/Input/Input";
@@ -9,10 +9,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordSchema } from "../../validators/PasswordValidator";
 import { registerActions } from "../../context/actions/register.actions";
 import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
+import { useGetUser } from "../../hooks/useGetUser.hook";
 
 function RegisterPasswordSignup() {
   const [location, setLocation] = useLocation();
-  const { dispatch } = useContext(RegisterContext);
+  const { userRegister, dispatch } = useContext(RegisterContext);
+  const [password, setPassword] = useState("");
   const {
     register,
     handleSubmit,
@@ -21,12 +23,14 @@ function RegisterPasswordSignup() {
   } = useForm({
     resolver: zodResolver(passwordSchema),
   });
+  const { user } = useGetUser(password, dispatch, userRegister);
   const handleOnSubmit = (data) => {
-    const { password } = data;
+    setPassword(data.password)
     dispatch({
       type: registerActions.setPassword,
       payload: password,
     });
+    if (user) alert("entrada exitosa");
     // setLocation("/register/signup/createpassword");
   };
   return (

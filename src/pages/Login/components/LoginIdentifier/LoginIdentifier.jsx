@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./LoginIdentifier.module.css";
 import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from "../../../../components/Input/Input";
@@ -9,9 +9,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
 import { emailSchema } from "../../validators/EmailValidator";
 import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
+import { getUserByEmail } from "../../../../services/services/Users/getUserByEmail";
 
 function LoginIdentifier() {
-  const [location, setLocation] = useLocation();
+  const [_location, setLocation] = useLocation();
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const { dispatch } = useContext(LoginContext);
   const {
     register,
@@ -21,13 +23,24 @@ function LoginIdentifier() {
   } = useForm({
     resolver: zodResolver(emailSchema),
   });
-  const handleOnSubmit = (data) => {
-    const { email } = data;
-    dispatch({
-      type: loginActions.setEmail,
-      payload: email,
-    });
-    setLocation("/pwd");
+  //posteriormente mover logica
+  const handleOnSubmit = async (data) => {
+    const response = await getUserByEmail(data);
+    if (response) {
+      const { name, email } = response;
+      setInvalidEmail(false);
+      dispatch({
+        type: loginActions.setEmail,
+        payload: email,
+      });
+      dispatch({
+        type: loginActions.setName,
+        payload: name,
+      });
+      setLocation("/pwd");
+    } else {
+      setInvalidEmail(true);
+    }
   };
   return (
     <FormLoginLayout>
@@ -42,15 +55,18 @@ function LoginIdentifier() {
           value={watch()}
         />
         <div className={styles.containerError}>
-          {errors.email?.message && (
-            <ErrorMessage message={errors.email?.message} />
-          )}
+          {errors.email?.message ||
+            (invalidEmail && (
+              <ErrorMessage
+                message={errors.email?.message || "Email invalido"}
+              />
+            ))}
         </div>
         <div className={styles.containerButtons}>
+          <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
           <button onClick={() => setLocation("/register/signup/name")}>
             Crear cuenta
           </button>
-          <button onClick={handleSubmit(handleOnSubmit)}>Siguiente</button>
         </div>
       </div>
     </FormLoginLayout>

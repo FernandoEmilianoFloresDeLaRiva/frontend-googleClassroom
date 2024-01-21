@@ -44,19 +44,19 @@
   background-color: transparent;
 }
 
-.containerButtons button:first-child {
+.containerButtons button:last-child {
   width: 30%;
   color: #1a73e8;
   border-color: transparent;
 }
 
-.containerButtons button:first-child:hover {
+.containerButtons button:last-child:hover {
   cursor: pointer;
   background-color: #1a73e80e;
   border-radius: 5px;
 }
 
-.containerButtons button:last-child {
+.containerButtons button:first-child{
   text-decoration: none;
   width: 30%;
   height: 70%;
@@ -73,7 +73,7 @@
   border-radius: 5px;
 }
 
-.containerButtons button:last-child:hover {
+.containerButtons button:first-child:hover {
   cursor: pointer;
   background-color: rgb(3, 93, 210);
   box-shadow: 0 0 2px #000;

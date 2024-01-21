@@ -5,6 +5,7 @@ export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
   const [userLogin, dispatch] = useReducer(loginReducer, {
+    name : "",
     email: "",
     password: "",
   });

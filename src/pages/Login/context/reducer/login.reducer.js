@@ -5,6 +5,16 @@ export const loginReducer = (state, action) => {
     case loginActions.getUser: {
       return state;
     }
+
+    case loginActions.setName: {
+      const { payload } = action;
+      const newObject = {
+        ...state,
+        name: payload,
+      };
+      return newObject;
+    }
+
     case loginActions.setEmail: {
       const { payload } = action;
       const newObject = {

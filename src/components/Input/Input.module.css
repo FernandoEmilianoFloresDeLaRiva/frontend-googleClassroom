@@ -1,6 +1,5 @@
 * {
   font-family: google sans;
-  text-transform: capitalize;
   --color-label: rgb(32, 33, 36);
   --color-selected: #3f51b5;
 }
