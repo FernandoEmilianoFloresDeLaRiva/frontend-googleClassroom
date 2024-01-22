@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import styles from "./RegisterPasswordSignup.module.css";
 import FormLoginLayout from "../../../../components/FormLoginLayout/FormLoginLayout";
 import Input from "../../../../components/Input/Input";
-import { useLocation } from "wouter";
 import { RegisterContext } from "../../context/register.context";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,9 +11,7 @@ import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
 import { useGetUser } from "../../hooks/useGetUser.hook";
 
 function RegisterPasswordSignup() {
-  const [location, setLocation] = useLocation();
   const { userRegister, dispatch } = useContext(RegisterContext);
-
   const [password, setPassword] = useState("");
   const {
     register,
@@ -31,7 +28,6 @@ function RegisterPasswordSignup() {
       type: registerActions.setPassword,
       payload: password,
     });
-    setLocation("/home/0");
   };
   return (
     <FormLoginLayout>
