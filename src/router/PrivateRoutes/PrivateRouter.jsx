@@ -1,13 +1,12 @@
 import React from "react";
 import Home from "../../pages/Home/Home";
 import PrivateRoute from "./PrivateRoute";
-import { useSelector } from "react-redux";
 
-function PrivateRouter() {
-  const auth = useSelector((state) => state.auth);
+function PrivateRouter({isAuth}) {
+  console.log(isAuth)
   return (
     <>
-      <PrivateRoute pathName={"/home/:idMateria"} auth={auth.isAuth}>
+      <PrivateRoute pathName={"/home/:idMateria"} auth={isAuth}>
         <Home />
       </PrivateRoute>
     </>

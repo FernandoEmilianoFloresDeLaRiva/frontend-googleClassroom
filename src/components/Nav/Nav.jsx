@@ -6,6 +6,7 @@ import { useParams } from "wouter";
 
 function Nav() {
   const [activeGroupButtons, setActiveGroupButtons] = useState(false);
+  //realizar fetch de clase con id que viene en el parametro de url
   const params = useParams();
   const materia = parseInt(params.idMateria) !== 0 ? params.idMateria : 0;
   const user = useSelector((state) => state.auth);
@@ -34,7 +35,7 @@ function Nav() {
           Crear o unirse a una clase
         </div>
         <div className={styles.icon}>
-          <span>F</span>
+          <span>{user?.name.charAt(0)}</span>
         </div>
         <div className={styles.placeholderProfile} role="tooltip">
           <span>Cuenta de Google</span>

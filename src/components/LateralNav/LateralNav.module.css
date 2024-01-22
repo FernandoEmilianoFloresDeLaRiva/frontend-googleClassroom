@@ -1,0 +1,13 @@
+.container {
+  border-right: 1px solid #ccc;
+  margin-top: -0.5%;
+  width: 20%;
+  height: 89%;
+}
+
+.list {
+  list-style: none;
+  width: 87%;
+  min-height: 10%;
+  border-bottom: 1px solid #ccc;
+}
