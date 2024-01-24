@@ -4,7 +4,7 @@ import classroomLogo from "../../assets/imgs/logo-classroom.svg";
 import { useSelector } from "react-redux";
 import { useParams } from "wouter";
 
-function Nav() {
+function Nav({setOpenCreate, setOpenJoin }) {
   const [activeGroupButtons, setActiveGroupButtons] = useState(false);
   //realizar fetch de clase con id que viene en el parametro de url
   const params = useParams();
@@ -27,8 +27,8 @@ function Nav() {
         </button>
         {activeGroupButtons && (
           <div className={styles.groupButtons}>
-            <button>unirme a clase</button>
-            <button>crear clase</button>
+            <button onClick={setOpenJoin}>unirme a clase</button>
+            <button onClick={setOpenCreate}>crear clase</button>
           </div>
         )}
         <div className={styles.placeholder} role="tooltip">

@@ -5,13 +5,13 @@ import LateralNav from "../LateralNav/LateralNav";
 import { useSubjectsByIdUser } from "../../hooks/useSubjectsByIdUser";
 import { useSelector } from "react-redux";
 
-function LayoutHome({children}) {
-  const auth = useSelector((state) => state.auth)
-  const { subjects, isLoading} = useSubjectsByIdUser(auth)
+function LayoutHome({ children, setOpenCreate, setOpenJoin }) {
+  const auth = useSelector((state) => state.auth);
+  const { subjects, isLoading } = useSubjectsByIdUser(auth);
   return (
     <div className={styles.container}>
-      <Nav />
-      <LateralNav subjects={subjects} loading ={isLoading}/>
+      <Nav setOpenCreate={setOpenCreate} setOpenJoin={setOpenJoin} />
+      <LateralNav subjects={subjects} loading={isLoading} />
       {children}
     </div>
   );

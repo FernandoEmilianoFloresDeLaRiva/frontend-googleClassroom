@@ -1,21 +1,21 @@
-import React from 'react'
-import styles from "./Card.module.css"
+import React from "react";
+import styles from "./Card.module.css";
 
-function CardClass() {
+function CardClass({ subject }) {
   return (
     <article className={styles.container}>
       <div className={styles.header}>
         <div className={styles.titles}>
-          <h3>Matematicas</h3>
-          <p>Fernando Emiliano Flores DE LA Riva</p>
+          <h3>{subject?.subjectName}</h3>
+          <p>{subject?.teacherName}</p>
         </div>
         <div className={styles.profile}>
-          <span>F</span>
+          <span>{subject?.teacherName.charAt(0)}</span>
         </div>
       </div>
       <div className={styles.footer}></div>
     </article>
-  )
+  );
 }
 
-export default CardClass
+export default CardClass;

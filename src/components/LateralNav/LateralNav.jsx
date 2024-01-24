@@ -20,7 +20,12 @@ function LateralNav({ subjects, loading }) {
         {loading && "Loading..."}
         {subjects.length
           ? subjects.map((subject) => {
-              return <LiSubject subject={subject?.subjectName} />;
+              return (
+                <LiSubject
+                  subject={subject?.subjectName}
+                  key={subject?.idSubject}
+                />
+              );
             })
           : "No esta inscrito en ninguna materia.."}
       </ul>
