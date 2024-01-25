@@ -35,7 +35,13 @@ function Home() {
         {isLoading && "Loading..."}
         {subjects.length
           ? subjects.map((subject) => {
-              return <CardClass subject={subject} key={subject?.idSubject} />;
+              return (
+                <CardClass
+                  subject={subject}
+                  key={subject?.idSubject}
+                  path={"/subject"}
+                />
+              );
             })
           : "No esta inscrito en ninguna materia.."}
       </section>
@@ -46,11 +52,16 @@ function Home() {
         {isLoading && "Loading..."}
         {subjectsCreated.length
           ? subjectsCreated.map((subject) => {
-              return <CardClass subject={subject} key={subject?.idSubject} />;
+              return (
+                <CardClass
+                  subject={subject}
+                  key={subject?.idSubject}
+                  path={"/subject"}
+                />
+              );
             })
           : "No haz creado ninguna materia.."}
       </section>
-      {/* implementar cards de clases y al dar click el id de clase se guarda en url, para posteriormente aparezca en la nav */}
     </LayoutHome>
   );
 }

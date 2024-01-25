@@ -8,7 +8,7 @@ function Input({
   type = "text",
   value = null,
 }) {
-  const isInputFilled = Object.keys(value).length !== 0;
+  const isInputFilled = value !== null ? Object.keys(value).length !== 0 : false;
   return (
     <div className={styles.container}>
       <label

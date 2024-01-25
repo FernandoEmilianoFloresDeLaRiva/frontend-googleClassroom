@@ -2,35 +2,38 @@ import React, { useState } from "react";
 import styles from "./Nav.module.css";
 import classroomLogo from "../../assets/imgs/logo-classroom.svg";
 import { useSelector } from "react-redux";
-import { useParams } from "wouter";
+import { useLocation } from "wouter";
 
-function Nav({setOpenCreate, setOpenJoin }) {
+function Nav({ setOpenCreate, setOpenJoin, subject = "" }) {
   const [activeGroupButtons, setActiveGroupButtons] = useState(false);
-  //realizar fetch de clase con id que viene en el parametro de url
-  const params = useParams();
-  const materia = parseInt(params.idMateria) !== 0 ? params.idMateria : 0;
   const user = useSelector((state) => state.auth);
+  const [location, setLocation] = useLocation();
   return (
     <nav className={styles.container}>
       <div className={styles.containerLogo}>
-        <a>
+        <a onClick={() => setLocation("/home")}>
           <img src={classroomLogo} />
-          <span>Classroom {materia !== 0 ? ` > ${materia} ` : ""}</span>
+          <span>Classroom {subject !== "" ? ` > ${subject} ` : ""}</span>
         </a>
       </div>
       <div className={styles.profile}>
-        <button
-          className={styles.buttonPlus}
-          onClick={() => setActiveGroupButtons((prev) => !prev)}
-        >
-          <span>+</span>
-        </button>
-        {activeGroupButtons && (
-          <div className={styles.groupButtons}>
-            <button onClick={setOpenJoin}>unirme a clase</button>
-            <button onClick={setOpenCreate}>crear clase</button>
-          </div>
+        {setOpenCreate !== null && setOpenJoin !== null && (
+          <button
+            className={styles.buttonPlus}
+            onClick={() => setActiveGroupButtons((prev) => !prev)}
+          >
+            <span>+</span>
+          </button>
         )}
+
+        {setOpenCreate !== null &&
+          setOpenJoin !== null &&
+          activeGroupButtons && (
+            <div className={styles.groupButtons}>
+              <button onClick={setOpenJoin}>unirme a clase</button>
+              <button onClick={setOpenCreate}>crear clase</button>
+            </div>
+          )}
         <div className={styles.placeholder} role="tooltip">
           Crear o unirse a una clase
         </div>

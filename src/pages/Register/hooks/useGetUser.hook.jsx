@@ -27,7 +27,7 @@ export const useGetUser = (password = "", dispatch, reqUser = {}) => {
       dispatchRedux(postAuth(formatedResponse));
       console.log(formatedResponse);
       setUser(formatedResponse);
-      setLocation("/home/0");
+      setLocation("/home");
     };
     getCredentialsUser();
   }, [password]);

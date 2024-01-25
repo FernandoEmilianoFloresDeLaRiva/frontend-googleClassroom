@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+  padding-left: 3%;
+  width: 97%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.5);
+}
+
+.messageIcon {
+  width: 8%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.7s ease-in-out;
+}
+
+.messageIcon:hover {
+  cursor: pointer;
+  background-color: rgb(204, 204, 204, 0.3);
+}
+
+.username {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8%;
+  align-items: center;
+  letter-spacing: 0.01785714em;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #3c4043;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.username div {
+  font-size: 1.4em;
+  color: #fff;
+  background-color: #2369bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 14%;
+  border-radius: 50%;
+}

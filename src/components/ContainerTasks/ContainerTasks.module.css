@@ -1,0 +1,14 @@
+.containerTasks {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}

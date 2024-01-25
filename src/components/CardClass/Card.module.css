@@ -29,6 +29,8 @@
 .titles {
   font-family: Google Sans, Roboto, Arial, sans-serif;
   text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   font-weight: 400;
   line-height: 1.75rem;
   padding-left: 1%;
@@ -36,16 +38,22 @@
   height: 100%;
   margin-left: 4%;
   width: 80%;
-  overflow: hidden;
 }
 
 .titles h3 {
   text-overflow: ellipsis;
   font-weight: 500;
   font-size: 1.1em;
+  transition: 1s ease-in-out;
+}
+
+.titles h3:hover,
+p:hover {
+  text-decoration: underline;
 }
 
 .titles p {
+  transition: 1s ease-in-out;
   margin-top: -2%;
   font-size: 1em;
   width: 80%;

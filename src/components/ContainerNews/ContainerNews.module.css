@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  min-height: 80%;
+  gap: 2%;
+}
+
+.dashboard {
+  padding: 0 0 5% 5%;
+  border-radius: 10px;
+  width: 100%;
+  height: 30%;
+  background-color: #2369bf;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  letter-spacing: 0.01785714em;
+  font-family: google Sans, Roboto, Arial, sans-serif;
+  font-size: 2rem;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #fff;
+}
+
+.containerInfo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: black;
+  width: 100%;
+  min-height: 40%;
+}
+
+.code {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #efd8d8;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 2%;
+  height: 6em;
+  gap: 10%;
+  width: 18%;
+}
+
+.code span {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+}
+
+.code span:first-child {
+  letter-spacing: 0.01785714em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #3c4043;
+}
+
+.code span:last-child {
+  color: rgb(25, 103, 210);
+  fill: rgb(25, 103, 210);
+  line-height: 1.75rem;
+  font-size: 1.375rem;
+}
+
+.containerTasks{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  min-height: 70.9%;
+  max-width: 77.8%;
+}

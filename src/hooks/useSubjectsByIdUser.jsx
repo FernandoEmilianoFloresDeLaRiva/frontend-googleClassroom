@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { getSubjectsByIdUser } from "../services/services/subjects/getSubjectsByIdUser";
-import {getSubjectsCreatedByIdUser} from "../services/services/subjects/getSubjectsByIdCreated"
+import { getSubjectsCreatedByIdUser } from "../services/services/subjects/getSubjectsByIdCreated";
+import { getPendingCount } from "../services/services/tasks/getPendingCount";
 
 export const useSubjectsByIdUser = (auth) => {
+  const [countPendings, setCountPendings] = useState(0)
   const [subjectsCreated, setSubjectsCreated] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +18,6 @@ export const useSubjectsByIdUser = (auth) => {
         if (subjects.length !== response.length) {
           setSubjects(response);
         }
-        console.log("Datos obtenidos:", response);
         setIsLoading(false);
       } catch (err) {
         console.error("Error al obtener datos:", err);
@@ -32,7 +33,21 @@ export const useSubjectsByIdUser = (auth) => {
         if (subjects.length !== response.length) {
           setSubjectsCreated(response);
         }
-        console.log("Datos obtenidos:", response);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Error al obtener datos:", err);
+      }
+    };
+
+    const fetchCountPendingTasks = async () => {
+      try {
+        const { idUser } = auth;
+        if (idUser === 0) return;
+        setIsLoading(true);
+        const response = await getPendingCount(idUser);
+        if (countPendings.length !== response) {
+          setCountPendings(response);
+        }
         setIsLoading(false);
       } catch (err) {
         console.error("Error al obtener datos:", err);

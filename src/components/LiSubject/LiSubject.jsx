@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./LiSubject.module.css";
-function LiSubject({subject = 0}) {
+import { useLocation } from "wouter";
+import { SubjectContext } from "../../pages/ParticularHome/context/subject.context";
+function LiSubject({ subject }) {
+  const [location, setLocation] = useLocation();
+  const { setSubject } = useContext(SubjectContext);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setSubject(subject);
+    setLocation("/subject");
+  };
   return (
-    <li className={`${styles.options} ${styles.subject}`}>
+    <li className={`${styles.options} ${styles.subject}`} onClick={handleClick}>
       <div className={styles.icon}>
-        <span>{subject.charAt(0)}</span>
+        <span>{subject?.subjectName.charAt(0)}</span>
       </div>
-      <span>{subject}</span>
+      <span>{subject?.subjectName}</span>
     </li>
   );
 }

@@ -6,6 +6,7 @@ export const createAdaptedSubject = (subject) => {
       subjectName: object.subjectName,
       idSubject: object.idSubject,
       idTeacher: object.idTeacher,
+      code : object.code,
     };
     adaptedSubjects.push(formatedSubject);
   });
