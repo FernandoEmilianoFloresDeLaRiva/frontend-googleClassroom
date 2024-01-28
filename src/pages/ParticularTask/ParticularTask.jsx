@@ -7,8 +7,9 @@ import { useParticularTask } from "./hooks/useParticularTask";
 
 function ParticularTask() {
   const { task: taskContext } = useContext(TaskContext);
-  console.log(taskContext);
-  const { task, isLoading, updateTask } = useParticularTask(taskContext?.idWork);
+  const { task, isLoading, updateTask } = useParticularTask(
+    taskContext?.idWork
+  );
   return (
     <LayoutHome>
       {!isLoading && (
@@ -20,9 +21,10 @@ function ParticularTask() {
           </div>
           <div className={styles.content}>
             <header>
-              <h1>{task?.workName}</h1>
+              <h1>{taskContext?.workName}</h1>
               <span>
-                {task?.name} • {new Date(task?.date).toLocaleDateString()}
+                {task?.name} •{" "}
+                {new Date(taskContext?.date).toLocaleDateString()}
               </span>
             </header>
             <section className={styles.description}>
@@ -35,7 +37,9 @@ function ParticularTask() {
                 <span>Tu trabajo</span>
                 <span>{task?.state ? "Entregado" : "Sin entregar"}</span>
               </div>
-              {!task?.state && <button onClick={updateTask}>Realizar entrega</button>}
+              {!task?.state && (
+                <button onClick={updateTask}>Realizar entrega</button>
+              )}
             </div>
           </div>
         </div>

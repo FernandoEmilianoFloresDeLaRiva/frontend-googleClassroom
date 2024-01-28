@@ -21,7 +21,6 @@ function PendingsHome() {
       try {
         if (auth?.idUser === 0) return;
         const response = await getPendingCount(auth?.idUser);
-
         setCountPendings(response);
       } catch (err) {
         console.error("Error al obtener datos:", err);

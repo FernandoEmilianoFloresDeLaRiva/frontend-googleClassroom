@@ -12,7 +12,6 @@ export const useParticularTask = (id) => {
     const fetchTask = async () => {
       try {
         const res = await getTask(id);
-        console.log(res);
         setTask(res);
         setIsLoading(false);
       } catch (err) {
