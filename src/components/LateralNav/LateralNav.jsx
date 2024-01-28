@@ -25,16 +25,16 @@ function LateralNav({ subjects, loading, subjectsCreated }) {
         >
           <Task />
         </DefaultLateralUl>
-        {!loading && subjects.length
-          ? subjects.map((subject) => {
-              return <LiSubject subject={subject} key={subject?.idSubject} />;
-            })
-          : "No esta inscrito en ninguna materia.."}
-        {!loading && subjects.length
-          ? subjectsCreated.map((subject) => {
-              return <LiSubject subject={subject} key={subject?.idSubject} />;
-            })
-          : "No esta inscrito en ninguna materia.."}
+        {!loading &&
+          subjects.length &&
+          subjects.map((subject) => {
+            return <LiSubject subject={subject} key={subject?.idSubject} />;
+          })}
+        {!loading &&
+          subjectsCreated.length &&
+          subjectsCreated.map((subject) => {
+            return <LiSubject subject={subject} key={subject?.idSubject} />;
+          })}
       </ul>
     </nav>
   );
