@@ -7,6 +7,7 @@ import ContainerPeople from "../../components/containerPeople/ContainerPeople";
 import { useSelector } from "react-redux";
 import ContainerCreateTask from "../../components/ContainerCreateTask/ContainerCreateTask";
 import { useGetTasks } from "../../hooks/useGetTasks";
+import ChatHome from "../../components/ChatHome/ChatHome";
 
 function ParticularHome() {
   const auth = useSelector((state) => state.auth);
@@ -27,6 +28,7 @@ function ParticularHome() {
             ),
           },
           { text: "Personas", component: <ContainerPeople /> },
+          { text: "Chat grupal", component: <ChatHome subject={subject} token ={auth.token}/> },
         ]
       : [
           {
@@ -34,6 +36,7 @@ function ParticularHome() {
             component: <ContainerNews tasks={tasks} loading={isLoading} />,
           },
           { text: "Personas", component: <ContainerPeople /> },
+          { text: "Chat grupal", component: <ChatHome subject={subject}/> },
         ];
   return (
     <LayoutHome subject={subject?.subjectName}>

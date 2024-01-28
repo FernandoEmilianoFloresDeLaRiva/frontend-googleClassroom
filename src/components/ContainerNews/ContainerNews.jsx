@@ -20,6 +20,7 @@ function ContainerNews({ tasks, loading }) {
               return (
                 <TaskCard
                   text={`${subject?.teacherName} ha publicado una nueva tarea: ${task?.workName}`}
+                  task = {task}
                 />
               );
             })}

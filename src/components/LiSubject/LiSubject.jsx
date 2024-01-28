@@ -5,6 +5,7 @@ import { SubjectContext } from "../../pages/ParticularHome/context/subject.conte
 function LiSubject({ subject }) {
   const [location, setLocation] = useLocation();
   const { setSubject } = useContext(SubjectContext);
+  console.log(subject)
   const handleClick = (e) => {
     e.preventDefault();
     setSubject(subject);

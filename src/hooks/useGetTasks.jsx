@@ -4,6 +4,7 @@ import { getTasksByIdSubject } from "../services/services/tasks/getTasksByIdSubj
 import { getPendingTasks } from "../services/services/tasks/getPendingTasks";
 import { getFullfiledTasks } from "../services/services/tasks/getFullfiledTasks";
 import { getInvalidTasksByIdUser } from "../services/services/tasks/getInvalidTasksByIdUser";
+import { getPendingCount } from "../services/services/tasks/getPendingCount";
 
 export const useGetTasks = (idSubject = 0, idUser) => {
   const [tasks, setTasks] = useState([]);
@@ -67,6 +68,7 @@ export const useGetTasks = (idSubject = 0, idUser) => {
         console.error("Error al obtener datos:", err);
       }
     };
+
     fetchTasks();
     fetchPendingTasks();
     fetchFullfiledTasks();
@@ -82,5 +84,11 @@ export const useGetTasks = (idSubject = 0, idUser) => {
       clearInterval(intervalo4);
     };
   }, [idSubject]);
-  return { tasks, pendingTasks, fullfiledTasks, invalidTasks, isLoading };
+  return {
+    tasks,
+    pendingTasks,
+    fullfiledTasks,
+    invalidTasks,
+    isLoading,
+  };
 };

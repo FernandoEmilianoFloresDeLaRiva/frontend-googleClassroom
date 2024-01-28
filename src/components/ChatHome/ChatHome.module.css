@@ -1,0 +1,19 @@
+.container {
+  margin-top: -3%;
+  width: 102.3%;
+  height: 84%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.listchat {
+  overflow-y: auto;
+  width: 90%;
+  height: 70%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 0 2%;
+}

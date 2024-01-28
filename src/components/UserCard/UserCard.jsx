@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./UserCard.module.css";
 import MessageIcon from "../../assets/imgs/MessageIcon";
 
-function UserCard({user}) {
+function UserCard({ user }) {
   return (
     <article className={styles.container}>
       <div className={styles.username}>

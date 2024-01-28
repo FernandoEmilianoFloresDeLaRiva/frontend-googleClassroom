@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import { getSubjectsByIdUser } from "../services/services/subjects/getSubjectsByIdUser";
 import { getSubjectsCreatedByIdUser } from "../services/services/subjects/getSubjectsByIdCreated";
-import { getPendingCount } from "../services/services/tasks/getPendingCount";
 
 export const useSubjectsByIdUser = (auth) => {
-  const [countPendings, setCountPendings] = useState(0)
   const [subjectsCreated, setSubjectsCreated] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { idUser, token } = auth;
   useEffect(() => {
     const fetchDataSubjects = async () => {
       try {
-        const { idUser } = auth;
         if (idUser === 0) return;
         setIsLoading(true);
-        const response = await getSubjectsByIdUser(idUser);
+        const response = await getSubjectsByIdUser(idUser, token);
         if (subjects.length !== response.length) {
+          console.log(response);
           setSubjects(response);
         }
         setIsLoading(false);
@@ -26,11 +25,11 @@ export const useSubjectsByIdUser = (auth) => {
 
     const fetchDataSubjectsCreated = async () => {
       try {
-        const { idUser } = auth;
         if (idUser === 0) return;
         setIsLoading(true);
-        const response = await getSubjectsCreatedByIdUser(idUser);
+        const response = await getSubjectsCreatedByIdUser(idUser, token);
         if (subjects.length !== response.length) {
+          console.log(response);
           setSubjectsCreated(response);
         }
         setIsLoading(false);
@@ -39,23 +38,8 @@ export const useSubjectsByIdUser = (auth) => {
       }
     };
 
-    const fetchCountPendingTasks = async () => {
-      try {
-        const { idUser } = auth;
-        if (idUser === 0) return;
-        setIsLoading(true);
-        const response = await getPendingCount(idUser);
-        if (countPendings.length !== response) {
-          setCountPendings(response);
-        }
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Error al obtener datos:", err);
-      }
-    };
     fetchDataSubjects();
     fetchDataSubjectsCreated();
-
     const intervalo1 = setInterval(fetchDataSubjects, 10000);
     const intervalo2 = setInterval(fetchDataSubjectsCreated, 10000);
     return () => {

@@ -6,7 +6,7 @@ import DefaultLateralUl from "../DefaulLateralUl/DefaultLateralUl.jsx";
 import LiSubject from "../LiSubject/LiSubject.jsx";
 import { useLocation } from "wouter";
 
-function LateralNav({ subjects, loading }) {
+function LateralNav({ subjects, loading, subjectsCreated }) {
   const [_location, setLocation] = useLocation();
   return (
     <nav className={styles.container}>
@@ -25,9 +25,13 @@ function LateralNav({ subjects, loading }) {
         >
           <Task />
         </DefaultLateralUl>
-        {loading && "Loading..."}
-        {subjects.length
+        {!loading && subjects.length
           ? subjects.map((subject) => {
+              return <LiSubject subject={subject} key={subject?.idSubject} />;
+            })
+          : "No esta inscrito en ninguna materia.."}
+        {!loading && subjects.length
+          ? subjectsCreated.map((subject) => {
               return <LiSubject subject={subject} key={subject?.idSubject} />;
             })
           : "No esta inscrito en ninguna materia.."}

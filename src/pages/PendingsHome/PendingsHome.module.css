@@ -48,3 +48,16 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 4%;
+  border-radius: 50%;
+  background-color: rgb(204, 204, 204, 0.3);
+  position: absolute;
+  right: 10%;
+  top: 12%;
+}
